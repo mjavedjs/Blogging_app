@@ -7,7 +7,8 @@ import { collection, getDocs, query, where } from "https://www.gstatic.com/fireb
 let userName = document.querySelector("#user-profile-name");
 let userProfileImg = document.querySelector("#user-profile-img");
 const logbtn = document.querySelector("#logout-btnCORRECT");
-
+const showblogs = document.querySelector(".container");
+let blogsarray = [];
 onAuthStateChanged(auth,async (user) => {
   if (user) {
     console.log(auth.currentUser.uid) // Ya id current user k id hai jo login howa hia 
@@ -16,6 +17,8 @@ onAuthStateChanged(auth,async (user) => {
     let userdata = await getDatafromfirebasedb();
      userName.innerHTML = userdata.fullName;
      userProfileImg.src = userdata.profileImg;
+     let blogs = await getBlogsDataFromFirebaseDB();
+     renderBlogOnScreen(blogs);
   } else {
     window.location = 'login.html'
   }
@@ -38,6 +41,45 @@ return user
 
 
 }
+
+async function getBlogsDataFromFirebaseDB() {
+  const querySnapshot = await getDocs(collection(db, "usersblog"));
+   blogsarray = [];
+
+  querySnapshot.forEach((doc) => {
+    console.log(doc.id, " => ", doc.data());
+    console.log(doc.data())
+    blogsarray.push(doc.data());
+  });
+
+  return blogsarray;
+}
+
+function renderBlogOnScreen(blogs) {
+  const blogContainer = document.getElementById("blog-container");
+  blogContainer.innerHTML = "";
+
+  blogs.forEach((res) => {
+      let card = document.createElement("div");
+      card.classList.add("col-md-4");
+      let imageSrc = res.profileImg ? res.profileImg : "";
+      let title = res.title ? res.title : "";
+      let description = res.description ? res.description : "";
+      card.innerHTML = `
+          <div class="card h-100 shadow-sm border-0">
+             <img src="${imageSrc}" class="card-img-top" alt="Blog Image" style="height:200px; border-rounded object-fit:contain; width: 100%;">
+              <div class="card-body">
+                  <h5 class="card-title fw-bold">${title}</h5>
+                  <p class="card-text text-muted">${description}</p>
+              </div>
+          </div>
+      `;
+      blogContainer.appendChild(card);
+  });
+}
+
+
+renderBlogOnScreen(blogsarray);
 
 
 
