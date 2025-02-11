@@ -13,7 +13,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">My Website</a>
+            <a class="navbar-brand" href="./index.html">Blogify</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -25,23 +25,25 @@
                     <div id="login-user" class="d-flex align-items-center gap-3">
                         <!-- User profile and name -->
                         <li class="nav-item d-flex align-items-center gap-2" id="profile-btn">
-                            <img id="user-profile-img" width="30" src="" alt="Profile" class="rounded-circle">
-                            <a class="nav-link" id="user-profile-name" href="#">User Name</a>
+                           <a href="./userProfile.html"> <img id="user-profile-img" width="30" src="" alt="Profile" class="rounded-circle"></a>
+                            <a class="nav-link" id="user-profile-name" href="./userProfile.html">User Name</a>
                         </li>
                     <li class="nav-item" id="login-btn1">
                         <a class="nav-link" href="#"></a>
                     </li>
-
-                
                         <!-- Dashboard Link -->
                         <li class="nav-item">
-                            <a class="nav-link fw-bold text-primary" id="dashboard-link" href="./dashborad.html">Dashboard</a>
+                            <a class="nav-link fw-bold px-2 py-2 text-primary dashboard-btn" id="dashboard-link" href="./dashborad.html">
+                                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
+                            </a>
                         </li>
-
                         <!-- Logout Button -->
                         <li class="nav-item">
-                            <a class="nav-link text-danger" id="logout-btnCORRECT" href="#">LOGOUT</a>
-                        </li>
+                            <a class="nav-link fw-bold px-3 py-1 border border-danger text-danger rounded-pill logout-btn" id="logout-btn1" href="#">
+                                <i class="fas fa-sign-out-alt me-2"></i> LOGOUT
+                            </a>
+                        </li
+                        
                     </div>
                 </ul>
             </div>
@@ -49,9 +51,8 @@
     </nav>
     <section class="blog-section py-5">
         <main>
-            <div class="container">
-                <h2 class="text-center fw-bold mb-4">Latest Blogs</h2>
-                <div id="blog-container" class="row justify-content-center g-4">
+            <div class="container d-flex justify-content-center">
+                <div id="blog-container" class="row w-100 justify-content-center g-4">
                     <!-- Blog cards will be injected here dynamically -->
                 </div>
             </div>
@@ -62,6 +63,7 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script type="module" src="./scripts/app.js"></script>
+    <script src="https://kit.fontawesome.com/a792d62b7d.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

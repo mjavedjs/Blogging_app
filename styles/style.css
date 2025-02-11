@@ -19,3 +19,37 @@
 .card:hover {
     transform: scale(1.05);
 }
+#card-img{
+     width:120%;
+     aspect-ratio:2/4;
+     object-fit:contain;
+
+}
+
+.navbar-brand {
+    font-family: 'Poppins', sans-serif; /* Clean & Modern Font */
+    font-size: 28px; /* Increase Size */
+    font-weight: 700; /* Bold */
+    color: #333; /* Darker Color */
+    text-transform: uppercase; /* Uppercase for Strong Branding */
+    letter-spacing: 1.5px; /* Spacing for Style */
+    text-decoration: none; /* Remove underline */
+    transition: 0.3s ease-in-out;
+}
+
+.navbar-brand:hover {
+    color: #007bff; /* Change color on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.logout-btn {
+    transition: all 0.3s ease-in-out;
+    border-width: 2px;
+}
+
+.logout-btn:hover {
+    color: #fff;
+    border-color: #dc3545;
+    box-shadow: 0 4px 8px rgba(220, 53, 69, 0.3);
+    transform: scale(1.05);
+}

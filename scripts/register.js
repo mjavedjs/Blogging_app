@@ -25,18 +25,15 @@ let myWidget = cloudinary.createUploadWidget({
   document.getElementById("upload_widget").addEventListener("click", function(event){
     event.preventDefault()
       myWidget.open();
-    }, false);
+    }, false);  
 
 
 
 form.addEventListener('submit',(e)=>{
      e.preventDefault();
-
     createUserWithEmailAndPassword(auth, email.value, password.value)
   .then( async (userCredential) => {
     const user = userCredential.user;
-    
-    // window.location = 'login.html'
     console.log(user.uid);
     try {
         const docRef = await addDoc(collection(db, "users"), {
@@ -45,6 +42,7 @@ form.addEventListener('submit',(e)=>{
             uid: user.uid,
             profileImg:userProfilePicUrl
         });
+     window.location = 'login.html'
         console.log("Document written with ID are: ", docRef.id);
     } 
     catch (e) {
