@@ -40,7 +40,8 @@ form.addEventListener('submit',(e)=>{
             fullName: fullName.value,
             email: email.value,
             uid: user.uid,
-            profileImg:userProfilePicUrl
+            profileImg:userProfilePicUrl,
+            createdAt: new Date(),
         });
      window.location = 'login.html'
         console.log("Document written with ID are: ", docRef.id);
