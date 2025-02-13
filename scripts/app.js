@@ -48,7 +48,7 @@ async function getDatafromfirebasedb() {
   let user = null;
   const q = query(
     collection(db, "users"),
-    where("uid", "==", auth.currentUser.uid)
+    where("uid", "==", auth.currentUser.uid)  
   );
   const querySnapshot = await getDocs(q);
   querySnapshot.forEach((doc) => {
@@ -157,3 +157,38 @@ logbtn.addEventListener("click", (e) => {
       console.log(error);
     });
 });
+
+
+
+// Mode button function
+    document.addEventListener("DOMContentLoaded", function () {
+        const darkModeToggle = document.getElementById("dark-mode-toggle");
+        const body = document.body;
+        const icon = darkModeToggle.querySelector("i");
+        const text = darkModeToggle.querySelector("span");
+
+        // Check if dark mode is enabled in localStorage
+        if (localStorage.getItem("darkMode") === "enabled") {
+            body.classList.add("dark-mode");
+            darkModeToggle.classList.replace("btn-outline-dark", "btn-outline-light");
+            icon.classList.replace("fa-moon", "fa-sun");
+            text.textContent = "Light Mode";
+        }
+
+        darkModeToggle.addEventListener("click", function () {
+            body.classList.toggle("dark-mode");
+
+            // Save user preference
+            if (body.classList.contains("dark-mode")) {
+                localStorage.setItem("darkMode", "enabled");
+                darkModeToggle.classList.replace("btn-outline-dark", "btn-outline-light");
+                icon.classList.replace("fa-moon", "fa-sun");
+                text.textContent = "Light Mode";
+            } else {
+                localStorage.setItem("darkMode", "disabled");
+                darkModeToggle.classList.replace("btn-outline-light", "btn-outline-dark");
+                icon.classList.replace("fa-sun", "fa-moon");
+                text.textContent = "Dark Mode";
+            }
+        });
+    });

@@ -78,6 +78,36 @@
     }
 }
 
+.dark-mode {
+    background-color: #121212 !important;
+    color: white !important;
+}
+
+.dark-mode .navbar {
+    background-color: #1e1e1e !important;
+}
+
+.dark-mode .nav-link {
+    color: white !important;
+}
+
+.dark-mode .bg-light {
+    background-color: #1e1e1e !important;
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.dark-mode #dashboard-link {
+    background-color: #0d6efd !important; /* Bootstrap primary color */
+    color: white !important;
+    border: 1px solid #0d6efd !important;
+}
+
+.dark-mode #dashboard-link:hover {
+    background-color: #0b5ed7 !important; /* Darker blue on hover */
+}
+
 /* Responsive Card Layout */
 @media (max-width: 576px) {
     #card-img {
